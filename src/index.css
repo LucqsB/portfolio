@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
+    height: 100%;
+    margin: 0;
     scroll-behavior: smooth;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: white;
 }
+
+#root {
+    height: 100%;
+}
+
+main {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-padding: 0;
+}
+
+section {
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100%;
+    padding: 5rem 2rem;
+}
+
+
+
+            h1, h2, h3 {
+                text-transform: uppercase;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            /* Exemple de couleurs pour les éléments actifs */
+            .active {
+                color: #00B5D8; /* Bleu clair ou autre couleur vive */
+            }
