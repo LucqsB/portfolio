@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 
 const SideNav: React.FC = () => {
     const sections = [
-        { id: "home", label: "Home" },
-        { id: "projects", label: "Projets" },
-        { id: "about", label: "À propos" },
+        { id: "bonjour", label: "Bonjour" },
+        { id: "à propos", label: "À propos" },
+        { id: "compétences", label: "Compétences" },
         { id: "contact", label: "Contact" },
-        { id: "footer", label: "Footer" },
     ];
 
     const [activeSection, setActiveSection] = useState<string>("");
@@ -44,19 +43,34 @@ const SideNav: React.FC = () => {
     return (
         <div className="fixed top-1/2 right-8 transform -translate-y-1/2 flex flex-col space-y-4">
             {sections.map((section) => (
-                <button
+                <div
                     key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    className={`w-4 h-4 rounded-full transition-all ${
-                        activeSection === section.id
-                            ? "bg-blue-500"
-                            : "bg-gray-500 hover:bg-blue-500 focus:bg-blue-500"
-                    }`}
-                    title={section.label}
-                />
+                    className="flex items-center space-x-2"
+                >
+                    <button
+                        onClick={() => scrollToSection(section.id)}
+                        className={`transition-all ${
+                            activeSection === section.id
+                                ? "w-10 h-6 bg-purple-900 rounded-full" // Ovale actif
+                                : "w-4 h-4 bg-teal-500 rounded-full hover:bg-purple-900 focus:bg-purple-900" // Rond inactif
+                        }`}
+                        style={{
+                            marginLeft: activeSection === section.id ? "0px" : "12px", // Décalage des puces rondes
+                        }}
+                        title={section.label}
+                    />
+                    <span
+                        className={`text-xs transition-transform ${
+                            activeSection === section.id ? "text-purple-900 scale-110 font-semibold" : "text-gray-500"
+                        }`}
+                    >
+                        {section.label}
+                    </span>
+                </div>
             ))}
         </div>
     );
 };
 
 export default SideNav;
+

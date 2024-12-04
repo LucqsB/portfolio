@@ -5,15 +5,16 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SideNav from "./components/SideNav";
+import Skills from "./components/Skills";
 
 function App() {
     return (
-        <div className="font-sans text-gray-800">
+        <div>
             <Header/>
                 <main>
                     <Home/>
-                    <Projects/>
                     <About/>
+                    <Skills/>
                     <Contact/>
                     <Footer/>
                     <SideNav />

@@ -2,15 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+    scroll-behavior: smooth; /* Assure un défilement fluide */
+}
+
 body {
     height: 100%;
     margin: 0;
-    scroll-behavior: smooth;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
-    color: white;
+    font-family: 'Roboto Mono', sans-serif;
+    color: #14b8a6;
+
+    background-color: #090015;
+    background-image:
+            linear-gradient(0deg, #9ca3af 0.1px, transparent 0.6px),
+            linear-gradient(90deg, #9ca3af 0.1px, transparent 0.6px);
+    background-size: 100px 100px;
+    backdrop-filter: blur(0.7px);
 }
 
 #root {
@@ -19,7 +26,7 @@ body {
 
 main {
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: auto; /* Permet le défilement vertical */
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
     scroll-padding: 0;
@@ -32,17 +39,11 @@ section {
     padding: 5rem 2rem;
 }
 
+h1, h2, h3 {
+    text-transform: uppercase;
+    color: #581c87;
+}
 
-
-            h1, h2, h3 {
-                text-transform: uppercase;
-            }
-
-            a {
-                text-decoration: none;
-            }
-
-            /* Exemple de couleurs pour les éléments actifs */
-            .active {
-                color: #00B5D8; /* Bleu clair ou autre couleur vive */
-            }
+a {
+    text-decoration: none;
+}

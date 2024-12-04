@@ -1,41 +1,54 @@
 function Contact() {
     return (
-        <section id="contact" className="py-20">
-            <div className="container mx-auto px-4 text-center">
-                <h2 className="text-4xl font-extrabold mb-10">Contactez-moi</h2>
-                <form action="#" method="POST" className="max-w-lg mx-auto">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Votre Nom"
-                        className="w-full p-3 mb-4 border border-gray-300 rounded-md"
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Votre Email"
-                        className="w-full p-3 mb-4 border border-gray-300 rounded-md"
-                        required
-                    />
-                    <textarea
-                        name="message"
-                        placeholder="Votre Message"
-                        className="w-full p-3 mb-4 border border-gray-300 rounded-md"
-                        required
-                    />
-                    <button type="submit" className="w-full py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                        Envoyer
-                    </button>
-                </form>
-                <div className="mt-10">
-                    <p className="text-lg">Ou retrouvez-moi sur :</p>
-                    <div className="flex justify-center space-x-6 mt-4">
-                        <a href="#" className="text-blue-500 hover:text-blue-700">LinkedIn</a>
-                        <a href="#" className="text-blue-500 hover:text-blue-700">GitHub</a>
+        <section id="contact" className="flex flex-col items-center justify-center min-h-screen p-8">
+            <h2 className="text-4xl font-bold mb-8">Écris-moi</h2>
+            <form className="w-full max-w-lg space-y-6">
+                {/* Ligne avec Nom et Email */}
+                <div className="flex space-x-6">
+                    {/* Nom */}
+                    <div className="flex-1">
+                        <label htmlFor="name" className="sr-only">Nom</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Ton nom"
+                            className="w-full bg-transparent border-b border-gray-500 focus:border-blue-500 outline-none py-2 text-lg placeholder-gray-400 transition"
+                        />
+                    </div>
+
+                    {/* Email */}
+                    <div className="flex-1">
+                        <label htmlFor="email" className="sr-only">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Ton email"
+                            className="w-full bg-transparent border-b border-gray-500 focus:border-blue-500 outline-none py-2 text-lg placeholder-gray-400 transition"
+                        />
                     </div>
                 </div>
-            </div>
+
+                {/* Message */}
+                <div>
+                    <label htmlFor="message" className="sr-only">Message</label>
+                    <textarea
+                        id="message"
+                        placeholder="Ton message"
+                        rows={5}
+                        className="w-full bg-transparent border-b border-gray-500 focus:border-blue-500 outline-none py-2 text-lg placeholder-gray-400 transition resize-none"
+                    ></textarea>
+                </div>
+
+                {/* Bouton */}
+                <div className="text-center">
+                    <button
+                        type="submit"
+                        className="px-28 py-8 text-lg font-semibold hover:bg-purple-900 transition border border-white"
+                    >
+                        Envoyer
+                    </button>
+                </div>
+            </form>
         </section>
     );
 }
