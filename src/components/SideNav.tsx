@@ -55,7 +55,7 @@ const SideNav: React.FC = () => {
                                 : "w-4 h-4 bg-teal-500 rounded-full hover:bg-purple-900 focus:bg-purple-900" // Rond inactif
                         }`}
                         style={{
-                            marginLeft: activeSection === section.id ? "0px" : "12px", // Décalage des puces rondes
+                            marginLeft: activeSection === section.id ? "0px" : "12px", // Alignement des puces rondes
                         }}
                         title={section.label}
                     />

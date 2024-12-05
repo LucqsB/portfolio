@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { MdNightlight, MdWbSunny } from "react-icons/md";
 
 const Header: React.FC = () => {
     const sections = ["bonjour", "à propos", "techStack", "contact"];
     const [activeSection, setActiveSection] = useState<string>("");
+    const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true); // État pour savoir si on attend la récupération du thème
 
     const handleSectionChange = (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
@@ -16,7 +19,7 @@ const Header: React.FC = () => {
         const observer = new IntersectionObserver(handleSectionChange, {
             root: null,
             rootMargin: "0px",
-            threshold: 0.5, // Déclenchement à 50% de visibilité
+            threshold: 0.5, // Déclenchement quand 50% de la section est visible
         });
 
         const sectionsToObserve = document.querySelectorAll("section");
@@ -27,14 +30,45 @@ const Header: React.FC = () => {
         };
     }, []);
 
+    const toggleTheme = () => {
+        const newTheme = !isDarkMode;
+        setIsDarkMode(newTheme);
+        if (newTheme) {
+            document.documentElement.classList.remove("light");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.add("light");
+            localStorage.setItem("theme", "light");
+        }
+    };
+
+    // Récupérer et appliquer le thème au le premier rendu
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme === "light") {
+            setIsDarkMode(false);
+            document.documentElement.classList.add("light");
+        } else {
+            setIsDarkMode(true);
+            document.documentElement.classList.remove("light");
+        }
+
+        setIsLoading(false); // Mettre à jour isLoading quand la récupération du thème est terminée
+    }, []); // Ce useEffect s'exécute une seule fois au premier rendu
+
+    // Assurer que le rendu ne se fasse que si isDarkMode est défini
+    if (isLoading) return null; // Attendre que le thème soit récupéré avant de faire le rendu
+
+
     return (
-        <header className="sticky top-0 z-50 shadow-md">
+        <header className="sticky top-0 z-50">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 <h1 className="text-xl font-bold">LBA</h1>
                 <nav>
-                    <ul className="flex space-x-4">
+                    <ul className="flex space-x-6">
                         {sections.map((section) => (
-                            <li key={section} className="relative">
+                            <li key={section} className="relative mt-1.5">
                                 <a
                                     href={`#${section}`}
                                     className={`hover:text-purple-900 transition-all ${
@@ -54,6 +88,17 @@ const Header: React.FC = () => {
                                 />
                             </li>
                         ))}
+                        {/* Bouton de changement de thème */}
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 rounded dark:bg-gray-800 text-black dark:text-white transition-all"
+                        >
+                            {isDarkMode ? (
+                                <MdNightlight className="w-6 h-6 text-white" />
+                            ) : (
+                                <MdWbSunny className="w-6 h-6 text-black" />
+                            )}
+                        </button>
                     </ul>
                 </nav>
             </div>

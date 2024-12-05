@@ -33,7 +33,7 @@ function TechStack() {
             className="flex flex-col items-center justify-center min-h-screen p-8"
         >
             <h2 className="text-4xl font-bold mb-8">TechStack</h2>
-            {/* Front-End Section */}
+            {/* Front-End */}
             <div className="mb-16">
                 <h3 className="text-2xl font-semibold mb-6">Front-End</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
@@ -47,14 +47,14 @@ function TechStack() {
                                 alt={tech.name}
                                 className="tech-logo"
                             />
-                            <span className="text-lg font-medium group-hover:text-purple-300 transition-colors object-contain">
+                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors object-contain">
                 {tech.name}
               </span>
                         </div>
                     ))}
                 </div>
             </div>
-            {/* Back-End Section */}
+            {/* Back-End */}
             <div>
                 <h3 className="text-2xl font-semibold mb-6">Back-End</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
@@ -68,7 +68,7 @@ function TechStack() {
                                 alt={tech.name}
                                 className="tech-logo"
                             />
-                            <span className="text-lg font-medium group-hover:text-purple-300 transition-colors">
+                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors">
                 {tech.name}
               </span>
                         </div>

@@ -3,7 +3,7 @@ function Contact() {
         <section id="contact" className="flex flex-col items-center justify-center min-h-screen p-8">
             <h2 className="text-4xl font-bold mb-8">Écris-moi</h2>
             <form className="w-full max-w-lg space-y-6">
-                {/* Ligne avec Nom et Email */}
+                {/* Ligne du haut avec Nom et Email */}
                 <div className="flex space-x-6">
                     {/* Nom */}
                     <div className="flex-1">

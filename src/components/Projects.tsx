@@ -13,7 +13,7 @@ function Projects() {
                         </div>
                     </div>
 
-                    {/* Répéter le même modèle pour plus de projets */}
+                    {/* Répéter la même div pour les autres projets */}
 
                 </div>
             </div>
