@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Header: React.FC = () => {
-    const sections = ["bonjour", "à propos", "compétences", "contact"];
+    const sections = ["bonjour", "à propos", "techStack", "contact"];
     const [activeSection, setActiveSection] = useState<string>("");
 
     const handleSectionChange = (entries: IntersectionObserverEntry[]) => {

@@ -4,7 +4,7 @@ const SideNav: React.FC = () => {
     const sections = [
         { id: "bonjour", label: "Bonjour" },
         { id: "à propos", label: "À propos" },
-        { id: "compétences", label: "Compétences" },
+        { id: "techStack", label: "TechStack" },
         { id: "contact", label: "Contact" },
     ];
 

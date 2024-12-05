@@ -5,7 +5,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SideNav from "./components/SideNav";
-import Skills from "./components/Skills";
+import TechStack from "./components/TechStack";
 
 function App() {
     return (
@@ -14,7 +14,7 @@ function App() {
                 <main>
                     <Home/>
                     <About/>
-                    <Skills/>
+                    <TechStack/>
                     <Contact/>
                     <Footer/>
                     <SideNav />
