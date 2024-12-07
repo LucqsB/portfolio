@@ -43,7 +43,7 @@ function Contact() {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className="px-28 py-8 text-lg font-semibold hover:bg-purple-900 transition border border-white"
+                        className="px-28 py-8 text-lg font-semibold hover:bg-purple-900 transition border-2 border-emerald-400"
                     >
                         Envoyer
                     </button>

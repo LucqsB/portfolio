@@ -94,9 +94,9 @@ const Header: React.FC = () => {
                             className="p-2 rounded dark:bg-gray-800 text-black dark:text-white transition-all"
                         >
                             {isDarkMode ? (
-                                <MdNightlight className="w-6 h-6 text-white" />
+                                <MdWbSunny className="w-6 h-6 text-white" />
                             ) : (
-                                <MdWbSunny className="w-6 h-6 text-black" />
+                                <MdNightlight className="w-6 h-6 text-black" />
                             )}
                         </button>
                     </ul>
