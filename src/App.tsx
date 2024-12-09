@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
@@ -12,6 +12,7 @@ import "./index.css";
 function App() {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [inputValue, setInputValue] = useState("");
+    const [fadeInClass, setFadeInClass] = useState("hidden"); // Classe initiale
 
     const validWords = ["bonjour", "salut", "wesh", "salutations", "hello", "hola", "coucou"]; // Mots autorisés
 
@@ -23,6 +24,9 @@ function App() {
         event.preventDefault();
         if (validWords.includes(inputValue.toLowerCase())) {
             setIsAuthorized(true);
+
+            // Ajout de la classe fade-in après un court délai
+            setTimeout(() => setFadeInClass("fade-in"), 50);
         } else {
             alert("Pas assez poli.");
         }
@@ -43,7 +47,7 @@ function App() {
                             onChange={handleInputChange}
                             className="welcome-input"
                         />
-                        <br/>
+                        <br />
                         <button type="submit" className="welcome-button">
                             Entrer ?
                         </button>
@@ -51,7 +55,7 @@ function App() {
                 </div>
             ) : (
                 // Contenu principal
-                <div>
+                <div className={fadeInClass}>
                     <Header />
                     <main>
                         <Home />

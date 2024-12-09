@@ -42,7 +42,7 @@ const Header: React.FC = () => {
         }
     };
 
-    // Récupérer et appliquer le thème au le premier rendu
+    // Récupérer et appliquer le thème au premier rendu
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
 
@@ -60,6 +60,13 @@ const Header: React.FC = () => {
     // Assurer que le rendu ne se fasse que si isDarkMode est défini
     if (isLoading) return null; // Attendre que le thème soit récupéré avant de faire le rendu
 
+    const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+        event.preventDefault(); // Empêche le changement d'URL
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <header className="sticky top-0 z-50">
@@ -70,7 +77,8 @@ const Header: React.FC = () => {
                         {sections.map((section) => (
                             <li key={section} className="relative mt-1.5">
                                 <a
-                                    href={`#${section}`}
+                                    href="#"
+                                    onClick={(event) => scrollToSection(event, section)} // Appel à la fonction de scroll sans changer l'URL
                                     className={`hover:text-purple-900 transition-all ${
                                         activeSection === section
                                             ? "text-purple-900 font-semibold"
