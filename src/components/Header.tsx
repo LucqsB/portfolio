@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdNightlight, MdWbSunny } from "react-icons/md";
+import Logo from "../assets/squid1.png"; // Chemin vers votre logo SVG ou image
 
 const Header: React.FC = () => {
     const sections = ["bonjour", "à propos", "techStack", "contact"];
@@ -57,21 +58,32 @@ const Header: React.FC = () => {
         setIsLoading(false); // Mettre à jour isLoading quand la récupération du thème est terminée
     }, []); // Ce useEffect s'exécute une seule fois au premier rendu
 
-    // Assurer que le rendu ne se fasse que si isDarkMode est défini
-    if (isLoading) return null; // Attendre que le thème soit récupéré avant de faire le rendu
-
     const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
         event.preventDefault(); // Empêche le changement d'URL
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    if (isLoading) return null; // Attendre que le thème soit récupéré avant de faire le rendu
 
     return (
         <header className="sticky top-0 z-50">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 className="text-xl font-bold">LBA</h1>
+                {/* Logo */}
+                <a
+                    href="#bonjour" // Retour en haut de la page en cliquant sur le logo
+                    onClick={(event) => scrollToSection(event, "bonjour")}
+                >
+                    <img
+                        src={Logo}
+                        alt="Logo"
+                        className="w-16 h-16 cursor-pointer hover:opacity-80 transition-opacity"
+                    />
+                </a>
+
+                {/* Navigation */}
                 <nav>
                     <ul className="flex space-x-6">
                         {sections.map((section) => (
@@ -89,9 +101,7 @@ const Header: React.FC = () => {
                                 </a>
                                 <span
                                     className={`absolute left-0 bottom-0 h-[2px] bg-purple-900 transition-all duration-500 ${
-                                        activeSection === section
-                                            ? "w-full"
-                                            : "w-0"
+                                        activeSection === section ? "w-full" : "w-0"
                                     }`}
                                 />
                             </li>

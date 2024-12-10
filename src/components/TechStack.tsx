@@ -1,5 +1,5 @@
 import React from "react";
-import HTML5Logo from "../assets/html5.svg"
+import HTML5Logo from "../assets/html5.svg";
 import CSS3Logo from "../assets/css3.svg";
 import JSLogo from "../assets/javascript.svg";
 import ReactLogo from "../assets/react.svg";
@@ -30,7 +30,7 @@ function TechStack() {
     return (
         <section
             id="techStack"
-            className="flex flex-col items-center justify-center min-h-screen p-8"
+            className="flex flex-col items-center justify-center py-16 px-8"
         >
             <h2 className="text-4xl font-bold mb-8">TechStack</h2>
             {/* Front-End */}
@@ -47,9 +47,9 @@ function TechStack() {
                                 alt={tech.name}
                                 className="tech-logo"
                             />
-                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors object-contain">
-                {tech.name}
-              </span>
+                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors">
+                                {tech.name}
+                            </span>
                         </div>
                     ))}
                 </div>
@@ -69,8 +69,8 @@ function TechStack() {
                                 className="tech-logo"
                             />
                             <span className="text-lg font-medium group-hover:text-purple-900 transition-colors">
-                {tech.name}
-              </span>
+                                {tech.name}
+                            </span>
                         </div>
                     ))}
                 </div>

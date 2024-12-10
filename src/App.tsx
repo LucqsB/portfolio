@@ -36,35 +36,44 @@ function App() {
         <>
             {!isAuthorized ? (
                 // Écran d'accueil
-                <div id="welcome-screen">
-                    <form onSubmit={handleFormSubmit}>
-                        <h1>Bonjour !</h1>
-                        <p>Seules les personnes polies peuvent entrer:</p>
+                <div id="welcome-screen" className="min-h-screen flex items-center justify-center">
+                    <form onSubmit={handleFormSubmit} className="text-center p-8 shadow-lg rounded-lg">
+                        <h1 className="text-3xl font-bold mb-4">Bonjour !</h1>
+                        <p className="mb-6">Seules les personnes polies peuvent entrer:</p>
                         <input
                             type="text"
                             placeholder="Mot magique..."
                             value={inputValue}
                             onChange={handleInputChange}
-                            className="welcome-input"
+                            className="welcome-input border rounded p-2 mb-4 w-full"
                         />
                         <br />
-                        <button type="submit" className="welcome-button">
+                        <button type="submit" className="welcome-button bg-purple-600 px-4 py-2 rounded hover:bg-purple-800">
                             Entrer ?
                         </button>
                     </form>
                 </div>
             ) : (
                 // Contenu principal
-                <div className={fadeInClass}>
+                <div className={`${fadeInClass}`}>
                     <Header />
-                    <main>
-                        <Home />
-                        <About />
-                        <TechStack />
-                        <Contact />
+                    <main className="space-y-16">
+                        {/* Ajout de classes de marges pour éviter le chevauchement */}
+                        <section id="home" className="py-16 mt-20">
+                            <Home />
+                        </section>
+                        <section id="about" className="py-16 mt-20">
+                            <About />
+                        </section>
+                        <section id="techstack" className="py-16 mt-20">
+                            <TechStack />
+                        </section>
+                        <section id="contact" className="py-16 mt-20">
+                            <Contact />
+                        </section>
                         <Footer />
-                        <SideNav />
                     </main>
+                    <SideNav />
                 </div>
             )}
         </>
