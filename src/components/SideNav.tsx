@@ -21,7 +21,7 @@ const SideNav: React.FC = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < 1500) {
                 setIsVisible(false);
             } else {
                 setIsVisible(true);

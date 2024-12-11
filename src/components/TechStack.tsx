@@ -30,52 +30,59 @@ function TechStack() {
     return (
         <section
             id="techStack"
-            className="flex flex-col items-center justify-center py-16 px-8"
+            className="min-h-screen flex flex-col items-center justify-center py-16 px-4 sm:px-8"
         >
-            <h2 className="text-4xl font-bold mb-8">TechStack</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">TechStack</h2>
             {/* Front-End */}
-            <div className="mb-16">
-                <h3 className="text-2xl font-semibold mb-6">Front-End</h3>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="mb-16 w-full max-w-4xl">
+                <h3 className="text-2xl font-semibold mb-6 text-center sm:text-left">
+                    Front-End
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
                     {frontEndTechs.map((tech) => (
                         <div
                             key={tech.name}
-                            className="flex flex-col items-center group transform transition-transform hover:scale-110"
+                            className="flex flex-col items-center group transform transition-transform hover:scale-105"
                         >
                             <img
                                 src={tech.logo}
                                 alt={tech.name}
-                                className="tech-logo"
+                                className="tech-logo w-16 sm:w-20"
                             />
-                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors">
-                                {tech.name}
-                            </span>
+                            <span
+                                className="text-sm sm:text-base font-medium group-hover:text-purple-900 transition-colors">
+                        {tech.name}
+                    </span>
                         </div>
                     ))}
                 </div>
             </div>
             {/* Back-End */}
-            <div>
-                <h3 className="text-2xl font-semibold mb-6">Back-End</h3>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="w-full max-w-4xl">
+                <h3 className="text-2xl font-semibold mb-6 text-center sm:text-left">
+                    Back-End
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
                     {backEndTechs.map((tech) => (
                         <div
                             key={tech.name}
-                            className="flex flex-col items-center group transform transition-transform hover:scale-110"
+                            className="flex flex-col items-center group transform transition-transform hover:scale-105"
                         >
                             <img
                                 src={tech.logo}
                                 alt={tech.name}
-                                className="tech-logo"
+                                className="tech-logo w-16 sm:w-20"
                             />
-                            <span className="text-lg font-medium group-hover:text-purple-900 transition-colors">
-                                {tech.name}
-                            </span>
+                            <span
+                                className="text-sm sm:text-base font-medium group-hover:text-purple-900 transition-colors">
+                        {tech.name}
+                    </span>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
+
     );
 }
 
